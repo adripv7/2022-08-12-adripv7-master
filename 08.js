@@ -20,8 +20,34 @@
     
 function countDeep(arr) {
   // Tu código aca:
+  let contadorNumeros = 0;
+  let contadorStrings = 0;
+  let contadorBooleanos = 0;
+  let contadorUndefined = 0;
+  let countGeneral = 1;
 
-} 
+  function funcionRecursiva(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        countGeneral++;
+        funcionRecursiva(arr[i])
+      }
+      if (typeof arr[i] === "number") contadorNumeros++
+
+      if (typeof arr[i] === "string") contadorStrings++
+
+      if (typeof arr[i] === "boolean") contadorBooleanos++
+
+      if (arr[i] === undefined) {
+        contadorUndefined++
+      }
+    }
+  }
+
+  funcionRecursiva(arr);
+  return Math.pow(((countGeneral - contadorNumeros) * contadorStrings) / contadorBooleanos, contadorUndefined);
+}
+
 // No modifiques nada debajo de esta linea //
 
 module.exports = countDeep

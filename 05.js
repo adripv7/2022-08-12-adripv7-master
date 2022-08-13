@@ -21,9 +21,26 @@
 
 function mayorMenorOIgual(numFijo) {
   // Tu código aca:
-
+  suma=0;
+  var parametros={
+      numero1:numFijo,
+      segundoNumero:0
+  }
+  return function (segundoNumero) {
+    suma=parametros.numero1+segundoNumero;
+    if(!parametros.numero1){
+        return []
+    }else{
+        if(suma>10){
+            return "la suma es mayor a 10"
+        }else if(suma<10){
+            return "la suma es menor a 10"
+        }else{
+            return 10
+        }
+    }
+  }
 }
-
 // No modifiques nada debajo de esta linea //
 
 module.exports = mayorMenorOIgual;

@@ -18,10 +18,19 @@
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
 var restArray = function(array){
-    // Tu código acá
-
+    // Tu código acá 
+    var suma = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (Array.isArray(array[i])) {
+            suma += restArray(array[i]);
+        } else {
+            suma += array[i];
+        }
+    }
+    return suma;
 }
 
+    
 // No modifiques nada debajo de esta linea //
 
 module.exports = restArray

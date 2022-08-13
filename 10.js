@@ -10,8 +10,29 @@
 
 function insertAndSort(array, obj) {
   // Tu código acá
-  
+
+  var generalArray = []
+
+for (let key in obj) {
+generalArray.push(obj[key])
 }
+for (let key2 in array) {
+generalArray.push(array[key2])
+}
+
+      for (var i = 0; i < generalArray.length  ; i++) {
+        for(var j = 0 ; j < generalArray.length - i - 1; j++){
+        if (generalArray[j] > generalArray[j + 1]) {
+          var auxiliar = generalArray[j];
+          generalArray[j] = generalArray[j+1];
+          generalArray[j + 1] = auxiliar;
+        }
+       }
+      }
+      return generalArray
+
+}
+  
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = insertAndSort;
